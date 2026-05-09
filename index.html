@@ -1,1047 +1,329 @@
-<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    
-    <title>DEFriT</title>
-    <link rel="icon" href="https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/120/apple/325/sparkles_2728.png">
-
-    <link href="./imgs/css" rel="stylesheet">
-    <script type="text/javascript" src="./imgs/jquery.mlens-1.0.min.js"></script>
-    <script type="text/javascript" src="./imgs/jquery.js"></script>
-    
-    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
-
-    <link rel="stylesheet" href="./imgs/font-awesome.min.css">
-    <!-- 数学公式 -->
-    <script>
-      MathJax = {
-        tex: {
-          inlineMath: [['$', '$'], ['\\(', '\\)']],
-          displayMath: [['$$', '$$'], ['\\[', '\\]']],
-          tags: 'all'
-        }
-      };
-    </script>
-    <script id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
-    <style>
-        :root {
-            --text: #000;
-            --bg: #fff;
-        }
-        body {
-            font-family: 'Open-Sans', sans-serif;
-            font-weight: 300;
-            /* background-color: #fff;
-            color: black; */
-            background-color: #CDCDCD;
-            /* background-color: var(--bg); */
-            color: var(--text);
-        }
-        
-        .content {
-            width: 1000px;
-            padding: 25px 50px;
-            margin: 25px auto;
-            /* background-color: white; */
-            background-color: var(--bg);
-            box-shadow: 0px 0px 10px #999;
-            border-radius: 15px;
-        }
-
-        .contentblock {
-            width: 950px;
-            margin: 0 auto;
-            padding: 0;
-            border-spacing: 25px 0;
-        }
-
-        .contentblock td {
-            background-color: #fff;
-            padding: 25px 50px;
-            vertical-align: top;
-            box-shadow: 0px 0px 10px #999;
-            border-radius: 15px;
-        }
-
-        a,
-        a:visited {
-            /* color: #224b8d; */
-            color: #2a72f4;
-            font-weight: 300;
-        }
-
-        .mail-icon {
-            display: inline-block;
-            width: 1em;
-            height: 1em;
-            margin-left: 4px;
-            vertical-align: -0.14em;
-        }
-
-        #authors {
-            text-align: center;
-            margin-bottom: 20px;
-        }
-
-        #conference {
-            text-align: center;
-            margin-bottom: 20px;
-            font-style: italic;
-        }
-
-        #authors a {
-            margin: 0 10px;
-        }
-
-        h1 {
-            text-align: center;
-            font-size: 35px;
-            font-weight: 300;
-        }
-
-        h2 {
-            font-size: 30px;
-            font-weight: 300;
-        }
-
-        code {
-            display: block;
-            padding: 10px;
-            margin: 10px 10px;
-        }
-
-        p {
-            line-height: 25px;
-            text-align: justify;
-        }
-
-        p code {
-            display: inline;
-            padding: 0;
-            margin: 0;
-        }
-
-        #teasers {
-            margin: 0 auto;
-        }
-
-        #teasers td {
-            margin: 0 auto;
-            text-align: center;
-            padding: 5px;
-        }
-
-        #teasers img {
-            width: 250px;
-        }
-
-        #results img {
-            width: 133px;
-        }
-
-        #seeintodark {
-            margin: 0 auto;
-        }
-
-        #sift {
-            margin: 0 auto;
-        }
-
-        #sift img {
-            width: 250px;
-        }
-
-        .downloadpaper {
-            padding-left: 20px;
-            float: right;
-            text-align: center;
-        }
-
-        .downloadpaper a {
-            font-weight: bold;
-            text-align: center;
-        }
-
-        #demoframe {
-            border: 0;
-            padding: 0;
-            margin: 0;
-            width: 100%;
-            height: 340px;
-        }
-
-        #feedbackform {
-            border: 1px solid #ccc;
-            margin: 0 auto;
-            border-radius: 15px;
-        }
-
-        #eyeglass {
-            height: 530px;
-        }
-
-        #eyeglass #wrapper {
-            position: relative;
-            height: auto;
-            margin: 0 auto;
-            float: left;
-            width: 800px;
-        }
-
-        #mitnews {
-            font-weight: normal;
-            margin-top: 20px;
-            font-size: 14px;
-            width: 220px;
-        }
-
-        #mitnews a {
-            font-weight: normal;
-        }
-
-        .teaser-img {
-            width: 100%;
-        }
-
-        .iframe {
-            width: 100%;
-            height: 125%
-        }
-
-        #links-box{
-            text-align: center;
-            width:600px; /* 若增加logo数量，调整宽度 */
-            margin:0 auto;
-            /* border:1px solid red; */
-        }
-
-        ul li{
-           display: inline;    
-           list-style: none; 
-           float: left;
-           padding: 40px;
-        }
-
-        ul li a{
-            text-align: justify;
-            width: 100px;
-            
-        }
-
-        ul li a img {
-            display: block;
-            margin: 0 auto;
-        }
-    </style>
-    
-
-<style type="text/css">
-  @font-face {
-    font-family: CuboxInter;
-    font-style: normal;
-    font-weight: 100 900;
-    font-display: swap;
-    src: url("chrome-extension://bflmgpechpeohjfomgfdkkfcbhfcjohl/fonts/InterVariable.woff2") format("woff2");
-  }
-  #cubox-react-root {
-    z-index: 999999999999999999999;
-  }
-  </style><link rel="stylesheet" href="chrome-extension://bflmgpechpeohjfomgfdkkfcbhfcjohl/css/globalHighlightStyles.css"><style type="text/css">.CtxtMenu_InfoClose {  top:.2em; right:.2em;}
-.CtxtMenu_InfoContent {  overflow:auto; text-align:left; font-size:80%;  padding:.4em .6em; border:1px inset; margin:1em 0px;  max-height:20em; max-width:30em; background-color:#EEEEEE;  white-space:normal;}
-.CtxtMenu_Info.CtxtMenu_MousePost {outline:none;}
-.CtxtMenu_Info {  position:fixed; left:50%; width:auto; text-align:center;  border:3px outset; padding:1em 2em; background-color:#DDDDDD;  color:black;  cursor:default; font-family:message-box; font-size:120%;  font-style:normal; text-indent:0; text-transform:none;  line-height:normal; letter-spacing:normal; word-spacing:normal;  word-wrap:normal; white-space:nowrap; float:none; z-index:201;  border-radius: 15px;                     /* Opera 10.5 and IE9 */  -webkit-border-radius:15px;               /* Safari and Chrome */  -moz-border-radius:15px;                  /* Firefox */  -khtml-border-radius:15px;                /* Konqueror */  box-shadow:0px 10px 20px #808080;         /* Opera 10.5 and IE9 */  -webkit-box-shadow:0px 10px 20px #808080; /* Safari 3 & Chrome */  -moz-box-shadow:0px 10px 20px #808080;    /* Forefox 3.5 */  -khtml-box-shadow:0px 10px 20px #808080;  /* Konqueror */  filter:progid:DXImageTransform.Microsoft.dropshadow(OffX=2, OffY=2, Color="gray", Positive="true"); /* IE */}
-</style><style type="text/css">.CtxtMenu_MenuClose {  position:absolute;  cursor:pointer;  display:inline-block;  border:2px solid #AAA;  border-radius:18px;  -webkit-border-radius: 18px;             /* Safari and Chrome */  -moz-border-radius: 18px;                /* Firefox */  -khtml-border-radius: 18px;              /* Konqueror */  font-family: "Courier New", Courier;  font-size:24px;  color:#F0F0F0}
-.CtxtMenu_MenuClose span {  display:block; background-color:#AAA; border:1.5px solid;  border-radius:18px;  -webkit-border-radius: 18px;             /* Safari and Chrome */  -moz-border-radius: 18px;                /* Firefox */  -khtml-border-radius: 18px;              /* Konqueror */  line-height:0;  padding:8px 0 6px     /* may need to be browser-specific */}
-.CtxtMenu_MenuClose:hover {  color:white!important;  border:2px solid #CCC!important}
-.CtxtMenu_MenuClose:hover span {  background-color:#CCC!important}
-.CtxtMenu_MenuClose:hover:focus {  outline:none}
-</style><style type="text/css">.CtxtMenu_Menu {  position:absolute;  background-color:white;  color:black;  width:auto; padding:5px 0px;  border:1px solid #CCCCCC; margin:0; cursor:default;  font: menu; text-align:left; text-indent:0; text-transform:none;  line-height:normal; letter-spacing:normal; word-spacing:normal;  word-wrap:normal; white-space:nowrap; float:none; z-index:201;  border-radius: 5px;                     /* Opera 10.5 and IE9 */  -webkit-border-radius: 5px;             /* Safari and Chrome */  -moz-border-radius: 5px;                /* Firefox */  -khtml-border-radius: 5px;              /* Konqueror */  box-shadow:0px 10px 20px #808080;         /* Opera 10.5 and IE9 */  -webkit-box-shadow:0px 10px 20px #808080; /* Safari 3 & Chrome */  -moz-box-shadow:0px 10px 20px #808080;    /* Forefox 3.5 */  -khtml-box-shadow:0px 10px 20px #808080;  /* Konqueror */}
-.CtxtMenu_MenuItem {  padding: 1px 2em;  background:transparent;}
-.CtxtMenu_MenuArrow {  position:absolute; right:.5em; padding-top:.25em; color:#666666;  font-family: null; font-size: .75em}
-.CtxtMenu_MenuActive .CtxtMenu_MenuArrow {color:white}
-.CtxtMenu_MenuArrow.CtxtMenu_RTL {left:.5em; right:auto}
-.CtxtMenu_MenuCheck {  position:absolute; left:.7em;  font-family: null}
-.CtxtMenu_MenuCheck.CtxtMenu_RTL { right:.7em; left:auto }
-.CtxtMenu_MenuRadioCheck {  position:absolute; left: .7em;}
-.CtxtMenu_MenuRadioCheck.CtxtMenu_RTL {  right: .7em; left:auto}
-.CtxtMenu_MenuInputBox {  padding-left: 1em; right:.5em; color:#666666;  font-family: null;}
-.CtxtMenu_MenuInputBox.CtxtMenu_RTL {  left: .1em;}
-.CtxtMenu_MenuComboBox {  left:.1em; padding-bottom:.5em;}
-.CtxtMenu_MenuSlider {  left: .1em;}
-.CtxtMenu_SliderValue {  position:absolute; right:.1em; padding-top:.25em; color:#333333;  font-size: .75em}
-.CtxtMenu_SliderBar {  outline: none; background: #d3d3d3}
-.CtxtMenu_MenuLabel {  padding: 1px 2em 3px 1.33em;  font-style:italic}
-.CtxtMenu_MenuRule {  border-top: 1px solid #DDDDDD;  margin: 4px 3px;}
-.CtxtMenu_MenuDisabled {  color:GrayText}
-.CtxtMenu_MenuActive {  background-color: #606872;  color: white;}
-.CtxtMenu_MenuDisabled:focus {  background-color: #E8E8E8}
-.CtxtMenu_MenuLabel:focus {  background-color: #E8E8E8}
-.CtxtMenu_ContextMenu:focus {  outline:none}
-.CtxtMenu_ContextMenu .CtxtMenu_MenuItem:focus {  outline:none}
-.CtxtMenu_SelectionMenu {  position:relative; float:left;  border-bottom: none; -webkit-box-shadow:none; -webkit-border-radius:0px; }
-.CtxtMenu_SelectionItem {  padding-right: 1em;}
-.CtxtMenu_Selection {  right: 40%; width:50%; }
-.CtxtMenu_SelectionBox {  padding: 0em; max-height:20em; max-width: none;  background-color:#FFFFFF;}
-.CtxtMenu_SelectionDivider {  clear: both; border-top: 2px solid #000000;}
-.CtxtMenu_Menu .CtxtMenu_MenuClose {  top:-10px; left:-10px}
-</style><style id="MJX-CHTML-styles">
-mjx-container[jax="CHTML"] {
-  line-height: 0;
-}
-
-mjx-container [space="1"] {
-  margin-left: .111em;
-}
-
-mjx-container [space="2"] {
-  margin-left: .167em;
-}
-
-mjx-container [space="3"] {
-  margin-left: .222em;
-}
-
-mjx-container [space="4"] {
-  margin-left: .278em;
-}
-
-mjx-container [space="5"] {
-  margin-left: .333em;
-}
-
-mjx-container [rspace="1"] {
-  margin-right: .111em;
-}
-
-mjx-container [rspace="2"] {
-  margin-right: .167em;
-}
-
-mjx-container [rspace="3"] {
-  margin-right: .222em;
-}
-
-mjx-container [rspace="4"] {
-  margin-right: .278em;
-}
-
-mjx-container [rspace="5"] {
-  margin-right: .333em;
-}
-
-mjx-container [size="s"] {
-  font-size: 70.7%;
-}
-
-mjx-container [size="ss"] {
-  font-size: 50%;
-}
-
-mjx-container [size="Tn"] {
-  font-size: 60%;
-}
-
-mjx-container [size="sm"] {
-  font-size: 85%;
-}
-
-mjx-container [size="lg"] {
-  font-size: 120%;
-}
-
-mjx-container [size="Lg"] {
-  font-size: 144%;
-}
-
-mjx-container [size="LG"] {
-  font-size: 173%;
-}
-
-mjx-container [size="hg"] {
-  font-size: 207%;
-}
-
-mjx-container [size="HG"] {
-  font-size: 249%;
-}
-
-mjx-container [width="full"] {
-  width: 100%;
-}
-
-mjx-box {
-  display: inline-block;
-}
-
-mjx-block {
-  display: block;
-}
-
-mjx-itable {
-  display: inline-table;
-}
-
-mjx-row {
-  display: table-row;
-}
-
-mjx-row > * {
-  display: table-cell;
-}
-
-mjx-mtext {
-  display: inline-block;
-}
-
-mjx-mstyle {
-  display: inline-block;
-}
-
-mjx-merror {
-  display: inline-block;
-  color: red;
-  background-color: yellow;
-}
-
-mjx-mphantom {
-  visibility: hidden;
-}
-
-_::-webkit-full-page-media, _:future, :root mjx-container {
-  will-change: opacity;
-}
-
-mjx-assistive-mml {
-  position: absolute !important;
-  top: 0px;
-  left: 0px;
-  clip: rect(1px, 1px, 1px, 1px);
-  padding: 1px 0px 0px 0px !important;
-  border: 0px !important;
-  display: block !important;
-  width: auto !important;
-  overflow: hidden !important;
-  -webkit-touch-callout: none;
-  -webkit-user-select: none;
-  -khtml-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
-}
-
-mjx-assistive-mml[display="block"] {
-  width: 100% !important;
-}
-
-mjx-math {
-  display: inline-block;
-  text-align: left;
-  line-height: 0;
-  text-indent: 0;
-  font-style: normal;
-  font-weight: normal;
-  font-size: 100%;
-  font-size-adjust: none;
-  letter-spacing: normal;
-  border-collapse: collapse;
-  word-wrap: normal;
-  word-spacing: normal;
-  white-space: nowrap;
-  direction: ltr;
-  padding: 1px 0;
-}
-
-mjx-container[jax="CHTML"][display="true"] {
-  display: block;
-  text-align: center;
-  margin: 1em 0;
-}
-
-mjx-container[jax="CHTML"][display="true"][width="full"] {
-  display: flex;
-}
-
-mjx-container[jax="CHTML"][display="true"] mjx-math {
-  padding: 0;
-}
-
-mjx-container[jax="CHTML"][justify="left"] {
-  text-align: left;
-}
-
-mjx-container[jax="CHTML"][justify="right"] {
-  text-align: right;
-}
-
-mjx-msub {
-  display: inline-block;
-  text-align: left;
-}
-
-mjx-mi {
-  display: inline-block;
-  text-align: left;
-}
-
-mjx-c {
-  display: inline-block;
-}
-
-mjx-utext {
-  display: inline-block;
-  padding: .75em 0 .2em 0;
-}
-
-mjx-mo {
-  display: inline-block;
-  text-align: left;
-}
-
-mjx-stretchy-h {
-  display: inline-table;
-  width: 100%;
-}
-
-mjx-stretchy-h > * {
-  display: table-cell;
-  width: 0;
-}
-
-mjx-stretchy-h > * > mjx-c {
-  display: inline-block;
-  transform: scalex(1.0000001);
-}
-
-mjx-stretchy-h > * > mjx-c::before {
-  display: inline-block;
-  width: initial;
-}
-
-mjx-stretchy-h > mjx-ext {
-  /* IE */ overflow: hidden;
-  /* others */ overflow: clip visible;
-  width: 100%;
-}
-
-mjx-stretchy-h > mjx-ext > mjx-c::before {
-  transform: scalex(500);
-}
-
-mjx-stretchy-h > mjx-ext > mjx-c {
-  width: 0;
-}
-
-mjx-stretchy-h > mjx-beg > mjx-c {
-  margin-right: -.1em;
-}
-
-mjx-stretchy-h > mjx-end > mjx-c {
-  margin-left: -.1em;
-}
-
-mjx-stretchy-v {
-  display: inline-block;
-}
-
-mjx-stretchy-v > * {
-  display: block;
-}
-
-mjx-stretchy-v > mjx-beg {
-  height: 0;
-}
-
-mjx-stretchy-v > mjx-end > mjx-c {
-  display: block;
-}
-
-mjx-stretchy-v > * > mjx-c {
-  transform: scaley(1.0000001);
-  transform-origin: left center;
-  overflow: hidden;
-}
-
-mjx-stretchy-v > mjx-ext {
-  display: block;
-  height: 100%;
-  box-sizing: border-box;
-  border: 0px solid transparent;
-  /* IE */ overflow: hidden;
-  /* others */ overflow: visible clip;
-}
-
-mjx-stretchy-v > mjx-ext > mjx-c::before {
-  width: initial;
-  box-sizing: border-box;
-}
-
-mjx-stretchy-v > mjx-ext > mjx-c {
-  transform: scaleY(500) translateY(.075em);
-  overflow: visible;
-}
-
-mjx-mark {
-  display: inline-block;
-  height: 0px;
-}
-
-mjx-TeXAtom {
-  display: inline-block;
-  text-align: left;
-}
-
-mjx-mover {
-  display: inline-block;
-  text-align: left;
-}
-
-mjx-mover:not([limits="false"]) {
-  padding-top: .1em;
-}
-
-mjx-mover:not([limits="false"]) > * {
-  display: block;
-  text-align: left;
-}
-
-mjx-c::before {
-  display: block;
-  width: 0;
-}
-
-.MJX-TEX {
-  font-family: MJXZERO, MJXTEX;
-}
-
-.TEX-B {
-  font-family: MJXZERO, MJXTEX-B;
-}
-
-.TEX-I {
-  font-family: MJXZERO, MJXTEX-I;
-}
-
-.TEX-MI {
-  font-family: MJXZERO, MJXTEX-MI;
-}
-
-.TEX-BI {
-  font-family: MJXZERO, MJXTEX-BI;
-}
-
-.TEX-S1 {
-  font-family: MJXZERO, MJXTEX-S1;
-}
-
-.TEX-S2 {
-  font-family: MJXZERO, MJXTEX-S2;
-}
-
-.TEX-S3 {
-  font-family: MJXZERO, MJXTEX-S3;
-}
-
-.TEX-S4 {
-  font-family: MJXZERO, MJXTEX-S4;
-}
-
-.TEX-A {
-  font-family: MJXZERO, MJXTEX-A;
-}
-
-.TEX-C {
-  font-family: MJXZERO, MJXTEX-C;
-}
-
-.TEX-CB {
-  font-family: MJXZERO, MJXTEX-CB;
-}
-
-.TEX-FR {
-  font-family: MJXZERO, MJXTEX-FR;
-}
-
-.TEX-FRB {
-  font-family: MJXZERO, MJXTEX-FRB;
-}
-
-.TEX-SS {
-  font-family: MJXZERO, MJXTEX-SS;
-}
-
-.TEX-SSB {
-  font-family: MJXZERO, MJXTEX-SSB;
-}
-
-.TEX-SSI {
-  font-family: MJXZERO, MJXTEX-SSI;
-}
-
-.TEX-SC {
-  font-family: MJXZERO, MJXTEX-SC;
-}
-
-.TEX-T {
-  font-family: MJXZERO, MJXTEX-T;
-}
-
-.TEX-V {
-  font-family: MJXZERO, MJXTEX-V;
-}
-
-.TEX-VB {
-  font-family: MJXZERO, MJXTEX-VB;
-}
-
-mjx-stretchy-v mjx-c, mjx-stretchy-h mjx-c {
-  font-family: MJXZERO, MJXTEX-S1, MJXTEX-S4, MJXTEX, MJXTEX-A ! important;
-}
-
-@font-face /* 0 */ {
-  font-family: MJXZERO;
-  src: url("https://cdn.jsdelivr.net/npm/mathjax@3/es5/output/chtml/fonts/woff-v2/MathJax_Zero.woff") format("woff");
-}
-
-@font-face /* 1 */ {
-  font-family: MJXTEX;
-  src: url("https://cdn.jsdelivr.net/npm/mathjax@3/es5/output/chtml/fonts/woff-v2/MathJax_Main-Regular.woff") format("woff");
-}
-
-@font-face /* 2 */ {
-  font-family: MJXTEX-B;
-  src: url("https://cdn.jsdelivr.net/npm/mathjax@3/es5/output/chtml/fonts/woff-v2/MathJax_Main-Bold.woff") format("woff");
-}
-
-@font-face /* 3 */ {
-  font-family: MJXTEX-I;
-  src: url("https://cdn.jsdelivr.net/npm/mathjax@3/es5/output/chtml/fonts/woff-v2/MathJax_Math-Italic.woff") format("woff");
-}
-
-@font-face /* 4 */ {
-  font-family: MJXTEX-MI;
-  src: url("https://cdn.jsdelivr.net/npm/mathjax@3/es5/output/chtml/fonts/woff-v2/MathJax_Main-Italic.woff") format("woff");
-}
-
-@font-face /* 5 */ {
-  font-family: MJXTEX-BI;
-  src: url("https://cdn.jsdelivr.net/npm/mathjax@3/es5/output/chtml/fonts/woff-v2/MathJax_Math-BoldItalic.woff") format("woff");
-}
-
-@font-face /* 6 */ {
-  font-family: MJXTEX-S1;
-  src: url("https://cdn.jsdelivr.net/npm/mathjax@3/es5/output/chtml/fonts/woff-v2/MathJax_Size1-Regular.woff") format("woff");
-}
-
-@font-face /* 7 */ {
-  font-family: MJXTEX-S2;
-  src: url("https://cdn.jsdelivr.net/npm/mathjax@3/es5/output/chtml/fonts/woff-v2/MathJax_Size2-Regular.woff") format("woff");
-}
-
-@font-face /* 8 */ {
-  font-family: MJXTEX-S3;
-  src: url("https://cdn.jsdelivr.net/npm/mathjax@3/es5/output/chtml/fonts/woff-v2/MathJax_Size3-Regular.woff") format("woff");
-}
-
-@font-face /* 9 */ {
-  font-family: MJXTEX-S4;
-  src: url("https://cdn.jsdelivr.net/npm/mathjax@3/es5/output/chtml/fonts/woff-v2/MathJax_Size4-Regular.woff") format("woff");
-}
-
-@font-face /* 10 */ {
-  font-family: MJXTEX-A;
-  src: url("https://cdn.jsdelivr.net/npm/mathjax@3/es5/output/chtml/fonts/woff-v2/MathJax_AMS-Regular.woff") format("woff");
-}
-
-@font-face /* 11 */ {
-  font-family: MJXTEX-C;
-  src: url("https://cdn.jsdelivr.net/npm/mathjax@3/es5/output/chtml/fonts/woff-v2/MathJax_Calligraphic-Regular.woff") format("woff");
-}
-
-@font-face /* 12 */ {
-  font-family: MJXTEX-CB;
-  src: url("https://cdn.jsdelivr.net/npm/mathjax@3/es5/output/chtml/fonts/woff-v2/MathJax_Calligraphic-Bold.woff") format("woff");
-}
-
-@font-face /* 13 */ {
-  font-family: MJXTEX-FR;
-  src: url("https://cdn.jsdelivr.net/npm/mathjax@3/es5/output/chtml/fonts/woff-v2/MathJax_Fraktur-Regular.woff") format("woff");
-}
-
-@font-face /* 14 */ {
-  font-family: MJXTEX-FRB;
-  src: url("https://cdn.jsdelivr.net/npm/mathjax@3/es5/output/chtml/fonts/woff-v2/MathJax_Fraktur-Bold.woff") format("woff");
-}
-
-@font-face /* 15 */ {
-  font-family: MJXTEX-SS;
-  src: url("https://cdn.jsdelivr.net/npm/mathjax@3/es5/output/chtml/fonts/woff-v2/MathJax_SansSerif-Regular.woff") format("woff");
-}
-
-@font-face /* 16 */ {
-  font-family: MJXTEX-SSB;
-  src: url("https://cdn.jsdelivr.net/npm/mathjax@3/es5/output/chtml/fonts/woff-v2/MathJax_SansSerif-Bold.woff") format("woff");
-}
-
-@font-face /* 17 */ {
-  font-family: MJXTEX-SSI;
-  src: url("https://cdn.jsdelivr.net/npm/mathjax@3/es5/output/chtml/fonts/woff-v2/MathJax_SansSerif-Italic.woff") format("woff");
-}
-
-@font-face /* 18 */ {
-  font-family: MJXTEX-SC;
-  src: url("https://cdn.jsdelivr.net/npm/mathjax@3/es5/output/chtml/fonts/woff-v2/MathJax_Script-Regular.woff") format("woff");
-}
-
-@font-face /* 19 */ {
-  font-family: MJXTEX-T;
-  src: url("https://cdn.jsdelivr.net/npm/mathjax@3/es5/output/chtml/fonts/woff-v2/MathJax_Typewriter-Regular.woff") format("woff");
-}
-
-@font-face /* 20 */ {
-  font-family: MJXTEX-V;
-  src: url("https://cdn.jsdelivr.net/npm/mathjax@3/es5/output/chtml/fonts/woff-v2/MathJax_Vector-Regular.woff") format("woff");
-}
-
-@font-face /* 21 */ {
-  font-family: MJXTEX-VB;
-  src: url("https://cdn.jsdelivr.net/npm/mathjax@3/es5/output/chtml/fonts/woff-v2/MathJax_Vector-Bold.woff") format("woff");
-}
-
-mjx-c.mjx-c1D43C.TEX-I::before {
-  padding: 0.683em 0.504em 0 0;
-  content: "I";
-}
-
-mjx-c.mjx-c1D460.TEX-I::before {
-  padding: 0.442em 0.469em 0.01em 0;
-  content: "s";
-}
-
-mjx-c.mjx-c1D461.TEX-I::before {
-  padding: 0.626em 0.361em 0.011em 0;
-  content: "t";
-}
-
-mjx-c.mjx-c1D43A.TEX-I::before {
-  padding: 0.705em 0.786em 0.022em 0;
-  content: "G";
-}
-
-mjx-c.mjx-c1D45F.TEX-I::before {
-  padding: 0.442em 0.451em 0.011em 0;
-  content: "r";
-}
-
-mjx-c.mjx-c1D451.TEX-I::before {
-  padding: 0.694em 0.52em 0.01em 0;
-  content: "d";
-}
-
-mjx-c.mjx-c28::before {
-  padding: 0.75em 0.389em 0.25em 0;
-  content: "(";
-}
-
-mjx-c.mjx-c2C::before {
-  padding: 0.121em 0.278em 0.194em 0;
-  content: ",";
-}
-
-mjx-c.mjx-c1D440.TEX-I::before {
-  padding: 0.683em 1.051em 0 0;
-  content: "M";
-}
-
-mjx-c.mjx-c29::before {
-  padding: 0.75em 0.389em 0.25em 0;
-  content: ")";
-}
-
-mjx-c.mjx-c1D439.TEX-I::before {
-  padding: 0.68em 0.749em 0 0;
-  content: "F";
-}
-
-mjx-c.mjx-c1D719.TEX-I::before {
-  padding: 0.694em 0.596em 0.205em 0;
-  content: "\3D5";
-}
-
-mjx-c.mjx-c1D446.TEX-I::before {
-  padding: 0.705em 0.645em 0.022em 0;
-  content: "S";
-}
-
-mjx-c.mjx-c1D703.TEX-I::before {
-  padding: 0.705em 0.469em 0.01em 0;
-  content: "\3B8";
-}
-
-mjx-c.mjx-c7E::before {
-  padding: 0.318em 0.5em 0 0;
-  content: "~";
-}
-</style></head>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>DEFriT</title>
+  <link rel="icon" href="./imgs/favicon.png">
+
+  <!-- Local stylesheets -->
+  <link rel="stylesheet" href="./imgs/css">
+  <link rel="stylesheet" href="./imgs/font-awesome.min.css">
+
+  <!-- MathJax: async loading to avoid blocking page rendering -->
+  <script>
+    window.MathJax = {
+      tex: {
+        inlineMath: [['$', '$'], ['\\(', '\\)']],
+        displayMath: [['$$', '$$'], ['\\[', '\\]']],
+        tags: 'all'
+      },
+      options: {
+        skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      }
+    };
+  </script>
+  <script id="MathJax-script" async
+          src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+
+  <style>
+    :root {
+      --text: #000;
+      --bg: #fff;
+      --page-bg: #CDCDCD;
+      --link: #2a72f4;
+      --shadow: 0 0 10px #999;
+      --radius: 15px;
+      --content-width: 1000px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: "Open Sans", "Open-Sans", Arial, sans-serif;
+      font-weight: 300;
+      background-color: var(--page-bg);
+      color: var(--text);
+    }
+
+    .content {
+      width: min(var(--content-width), calc(100% - 30px));
+      padding: 25px 50px;
+      margin: 25px auto;
+      background-color: var(--bg);
+      box-shadow: var(--shadow);
+      border-radius: var(--radius);
+    }
+
+    a,
+    a:visited {
+      color: var(--link);
+      font-weight: 300;
+    }
+
+    h1 {
+      text-align: center;
+      font-size: 35px;
+      font-weight: 300;
+      line-height: 1.25;
+      margin: 0 0 20px;
+    }
+
+    h2 {
+      font-size: 30px;
+      font-weight: 300;
+    }
+
+    h3 {
+      margin-top: 28px;
+    }
+
+    p {
+      line-height: 25px;
+      text-align: justify;
+    }
+
+    code {
+      display: block;
+      padding: 10px;
+      margin: 10px 10px;
+      white-space: normal;
+      line-height: 1.5;
+    }
+
+    center {
+      display: block;
+      text-align: center;
+    }
+
+    #authors {
+      text-align: center;
+      margin-bottom: 20px;
+      line-height: 1.7;
+    }
+
+    .mail-icon {
+      display: inline-block;
+      width: 1em;
+      height: 1em;
+      margin-left: 4px;
+      vertical-align: -0.14em;
+    }
+
+    .teaser-img {
+      display: block;
+      width: 100%;
+      height: auto;
+      margin: 0 auto;
+    }
+
+    .downloadpaper {
+      padding-left: 20px;
+      float: right;
+      text-align: center;
+    }
+
+    .downloadpaper a {
+      font-weight: bold;
+      text-align: center;
+    }
+
+    .downloadpaper img {
+      width: 160px;
+      height: auto;
+      border: 2px solid #000;
+    }
+
+    .video-wrap {
+      text-align: center;
+      margin: 18px 0;
+    }
+
+    video {
+      width: 100%;
+      height: auto;
+      display: block;
+      background: #000;
+      border-radius: 8px;
+    }
+
+    .section-title {
+      font-size: 1.5em;
+      text-align: center;
+      margin: 0 0 18px;
+    }
+
+    @media (max-width: 768px) {
+      .content {
+        width: calc(100% - 20px);
+        padding: 18px;
+        margin: 14px auto;
+      }
+
+      h1 {
+        font-size: 26px;
+      }
+
+      h2 {
+        font-size: 24px;
+      }
+
+      .downloadpaper {
+        float: none;
+        padding-left: 0;
+        margin: 0 auto 20px;
+      }
+    }
+  </style>
+</head>
 
 <body>
-    <div class="content">
-        <h1>Dual-Domain Fractional Fourier Transformer for Underwater Image Degradation Removal</h1>
+  <main>
+    <section class="content">
+      <h1>Dual-Domain Fractional Fourier Transformer for Underwater Image Degradation Removal</h1>
 
-        <p id="authors">
-            Chuangxi Chen<sup>1*</sup>, 
-            Zhuang Zhou<sup>1*<img class="mail-icon" src="./imgs/BxBxsEnvelope.svg" alt="" aria-hidden="true"></sup>, 
-            Xudong Zhao<sup>2</sup>, 
-            Yixiao Yang<sup>3</sup>, 
-            Xin Zhang<sup>1</sup>, 
-            Ran Tao<sup>2</sup>, and 
-            Binghua Su<sup>1</sup><br>
-            <sup>1</sup>Beijing Institute of Technology, Zhuhai &nbsp;&nbsp;&nbsp;&nbsp;
-            <sup>2</sup>Beijing Institute of Technology &nbsp;&nbsp;&nbsp;&nbsp;
-            <sup>3</sup>National University of Singapore<br>
-            *: equal contributions, &nbsp;&nbsp;<img class="mail-icon" src="./imgs/BxBxsEnvelope.svg" alt="" aria-hidden="true">: corresponding author
+      <p id="authors">
+        Chuangxi Chen<sup>1*</sup>,
+        Zhuang Zhou<sup>1*<img class="mail-icon" src="./imgs/BxBxsEnvelope.svg" alt="" aria-hidden="true" loading="lazy" decoding="async"></sup>,
+        Xudong Zhao<sup>2</sup>,
+        Yixiao Yang<sup>3</sup>,
+        Xin Zhang<sup>1</sup>,
+        Ran Tao<sup>2</sup>, and
+        Binghua Su<sup>1</sup><br>
+        <sup>1</sup>Beijing Institute of Technology, Zhuhai &nbsp;&nbsp;&nbsp;&nbsp;
+        <sup>2</sup>Beijing Institute of Technology &nbsp;&nbsp;&nbsp;&nbsp;
+        <sup>3</sup>National University of Singapore<br>
+        *: equal contributions, &nbsp;&nbsp;
+        <img class="mail-icon" src="./imgs/BxBxsEnvelope.svg" alt="" aria-hidden="true" loading="lazy" decoding="async">: corresponding author
+      </p>
+
+      <!-- First-screen image: keep eager loading for faster LCP -->
+      <p>
+        <img class="teaser-img"
+             src="./imgs/figure3.png"
+             alt="DEFriT teaser"
+             loading="eager"
+             decoding="async"
+             fetchpriority="high">
+      </p>
+
+      <div class="downloadpaper">
+        <br>
+        <a href="https://ieeexplore.ieee.org/document/11370686" target="_blank" rel="noopener">
+          <img src="./imgs/cover.jpg"
+               alt="Paper cover"
+               loading="lazy"
+               decoding="async">
+        </a>
+        <p style="text-align:center;">
+          <a href="https://ieeexplore.ieee.org/document/11370686" target="_blank" rel="noopener">[Paper]</a>&nbsp;&nbsp;
+          <a href="https://github.com/chuangxi/DEFriT" target="_blank" rel="noopener">[Code]</a>
         </p>
+      </div>
 
-        <!-- <font size="+1">
-        <div id="links-box">
-            <ul id="links">
-                <li>
-                    <a href="https://arxiv.org/abs/2211.14068" target="_blank">
-                        <img src="./imgs/3997608.png" alt="pdf" style="width:100px;height:100px;" data-cubox-image-id="e39b3bb9b423d835627911c35e96bda2" data-cubox-image-index="0" data-cubox-image-load="false">
-                        <strong>Paper</strong>
-                    </a>
-                </li>
-                <li>
-                    <a href="https://e4s2022.github.io/files/supp_CR.pdf" target="_blank">
-                        <img src="./imgs/free-document-icon-901-thumb.png" alt="supp" style="width:110px;height:100px;" data-cubox-image-id="c985881f72c6c59979cf60c64b5914fe" data-cubox-image-index="1" data-cubox-image-load="false">
-                        <strong>Supplement</strong>
-                    </a>
-                </li>
-                <li>
-                    <a href="https://github.com/e4s2022/e4s" target="_blank">
-                        <img src="./imgs/25231.png" alt="supp" style="width:100px;height:100px;" data-cubox-image-id="1ef270b0d62e95175c592fe75baf065e" data-cubox-image-index="2" data-cubox-image-load="false">
-                        <strong>Code<br></strong>
-                    </a>
-                </li>
-            </ul>
-        </div>
-        <font> -->
-       
-        <p>
-            <img class="teaser-img" src="./imgs/figure3.png" data-cubox-image-id="78abc4a3a1fd36973b42d631b5d9a415" data-cubox-image-index="4" data-cubox-image-load="false">
-        </p></br>
-				
-        <div class="downloadpaper">
-          <br>
-          <a href="https://ieeexplore.ieee.org/document/11370686">
-            <img src="./imgs/cover.jpg" width="160" style="border:2px solid #000;" alt="cover">
-          </a>
-          <p style="text-align:center;">
-            <a href="https://ieeexplore.ieee.org/document/11370686" target="_blank" rel="noopener">[Paper]</a>&nbsp;&nbsp;
-            <a href="https://github.com/chuangxi/DEFriT" target="_blank" rel="noopener">[Code]</a>
-          </p>
-        </div>
+      <div class="section-title">Abstract</div>
+      <p>
+        In this letter, we propose DEFriT, a dual-domain framework for underwater image restoration targeting degradation caused by scattering and absorption.
+        Supervised training is enabled by simulating underwater degradation from land images using a physics-based formation model.
+        To address the spectrally non-stationary nature of underwater attenuation, we introduce the fractional Fourier transform (FrFT) to bridge spatial and spectral representations.
+        A Fractional Transform Block (FrTB) with real&ndash;imaginary decomposition and Hybrid Time&ndash;Frequency Self-Attention (HTFSA) supports joint spatial&ndash;spectral modeling.
+        Empirical analysis shows that degradation mainly affect the amplitude spectrum, with learned fractional orders concentrated in a narrow range (\(p\in[0.48,0.52]\)).
+        To the best of our knowledge, this is the first work to introduce FrFT into underwater image restoration and to systematically establish a fractional-order prior.
+        DEFriT achieves state-of-the-art performance on five benchmark datasets.
+      </p>
 
-				
+      <br clear="all">
+    </section>
 
-        <!-- <p>Compared with the existing StyleGAN-based face swapping approaches,
-            our proposed method can achieve high-fidelity results that show better
-            identity keeping from the source while keeping the similar pose and 
-            expression as the target. Note that skin color preservation and proper 
-            occlusion handling are our advantages over others. All the facial images 
-            are at 1024x1024.</p> -->
-        
-        <center><font size="+2">Abstract</font></center>
-        <p>
-            In this letter, we propose DEFriT, a dual-domain framework for underwater image restoration targeting degradation caused by scattering and absorption.
-            Supervised training is enabled by simulating underwater degradation from land images using a physics-based formation model.
-            To address the spectrally non-stationary nature of underwater attenuation, we introduce the fractional Fourier transform (FrFT) to bridge spatial and spectral representations.
-            A Fractional Transform Block (FrTB) with real–imaginary decomposition and Hybrid Time–Frequency Self-Attention (HTFSA) supports joint spatial–spectral modeling.
-            Empirical analysis shows that degradation mainly affect the amplitude spectrum, with learned fractional orders concentrated in a narrow range (\(p\in[0.48,0.52]\)). To the best of our knowledge, this is the first work to introduce FrFT into underwater image restoration and to systematically establish a fractional-order prior.
-            DEFriT achieves state-of-the-art performance on five benchmark datasets.
-        </p>
-        <br clear="all">
-    </font></font></div><font size="+1"><font>
-    
-    <div class="content" id="swapping_pipeline">
-        <center><font size="+2">Proposed DEFriT framework</font></center>
-        <br clear="all">
-        <img class="teaser-img" src="./imgs/figure1.png" data-cubox-image-id="58106b369426806a77ed0adfe7fcf993" data-cubox-image-index="5" data-cubox-image-load="false">
-        <p>
-            Overview of the proposed DEFriT framework. 
-            1) Training process and verification process: Paired training data are synthesized from NYU-Depth V2 by following prior physically grounded synthesis practice using \(I_{c}=J_{c} e^{-\beta_{c}^{D} d}+B_{c}^{\infty}\left(1-e^{-\beta_{c}^{B} d}\right),\ c\in \{R,G,B\}\), with \(\beta_c^D, \beta_c^B \in [0,5]\) and \(B_c^\infty \in [0,1]\). We retain 5,000 samples whose Lab distribution matches real underwater scenes, and then perform verification on real underwater images.
-            2) Fractional-order Estimation module (FrOE): adaptive fractional orders \(p\) are predicted from input features to select an appropriate fractional domain for each sample.
-            3) FrTB module: feature maps are projected from the spatial domain to the 2D fractional Fourier domain \(\mathcal{F}_p\), enabling frequency-sensitive degradation representation.
-            4) HTFSA module: real-imaginary branch attention is applied in the fractional domain to aggregate long-range context and degradation-aware spectral cues, followed by inverse mapping to spatial features.
-            5) DEFriT Architecture: FrOE, FrTB, and HTFSA are cascaded within a UNet-style encoder--bottleneck--decoder backbone, forming an end-to-end dual-domain restoration pipeline.
-            6) Loss Function: optimization is jointly constrained by \(\mathcal{L}_{total}\), including spatial reconstruction term \(\mathcal{L}_{spa}\) and fractional-spectrum amplitude term \(\mathcal{L}_{amp}\), to balance structural fidelity and spectral consistency.
+    <section class="content" id="swapping_pipeline">
+      <div class="section-title">Proposed DEFriT framework</div>
 
-        </p>
-    </div>
+      <img class="teaser-img"
+           src="./imgs/figure1.png"
+           alt="Proposed DEFriT framework"
+           loading="lazy"
+           decoding="async">
 
-    <div class="content">
-        <center><font size="+2">Results and Applications</font></center>
-        
-        <h3>1. Results</h3>
-        <img class="teaser-img" src="./imgs/figure2.png" data-cubox-image-id="583fa095467a3828de9f8be4029cf2ea" data-cubox-image-index="7" data-cubox-image-load="false">
+      <p>
+        Overview of the proposed DEFriT framework.
+        1) Training process and verification process: Paired training data are synthesized from NYU-Depth V2 by following prior physically grounded synthesis practice using \(I_{c}=J_{c} e^{-\beta_{c}^{D} d}+B_{c}^{\infty}\left(1-e^{-\beta_{c}^{B} d}\right),\ c\in \{R,G,B\}\), with \(\beta_c^D, \beta_c^B \in [0,5]\) and \(B_c^\infty \in [0,1]\). We retain 5,000 samples whose Lab distribution matches real underwater scenes, and then perform verification on real underwater images.
+        2) Fractional-order Estimation module (FrOE): adaptive fractional orders \(p\) are predicted from input features to select an appropriate fractional domain for each sample.
+        3) FrTB module: feature maps are projected from the spatial domain to the 2D fractional Fourier domain \(\mathcal{F}_p\), enabling frequency-sensitive degradation representation.
+        4) HTFSA module: real-imaginary branch attention is applied in the fractional domain to aggregate long-range context and degradation-aware spectral cues, followed by inverse mapping to spatial features.
+        5) DEFriT Architecture: FrOE, FrTB, and HTFSA are cascaded within a UNet-style encoder--bottleneck--decoder backbone, forming an end-to-end dual-domain restoration pipeline.
+        6) Loss Function: optimization is jointly constrained by \(\mathcal{L}_{total}\), including spatial reconstruction term \(\mathcal{L}_{spa}\) and fractional-spectrum amplitude term \(\mathcal{L}_{amp}\), to balance structural fidelity and spectral consistency.
+      </p>
+    </section>
 
-        <h3>2. Visualization Comparison</h3>
-        <img class="teaser-img" src="./imgs/Comparison.jpg" data-cubox-image-id="583fa095467a3828de9f8be4029cf2ea" data-cubox-image-index="7" data-cubox-image-load="false">
+    <section class="content">
+      <div class="section-title">Results and Applications</div>
 
-        <h3>3. Real-World Application Videos</h3>
-        <p style="text-align: center;">
-            <!-- <video width="100%" poster="imgs/demo1_h264.png" controls=autoplay="autoplay" muted playsinline> -->
-			<video width="100%" poster="imgs/demo1_h264.png" controls muted playsinline>
-                <source src="./imgs/demo1_h264.mp4" type="video/mp4">
-                <object data="./imgs/demo1_h264.mp4" width="100%">
-                  <embed src="./imgs/demo1_h264.mp4" width="100%">
-                </object>
-            </video>
-        </p>
-        <p style="text-align: center;">
-            <video width="100%" poster="imgs/demo4_h264.png" controls muted playsinline>
-                <source src="./imgs/demo4_h264.mp4" type="video/mp4">
-                <object data="./imgs/demo4_h264.mp4" width="100%">
-                  <embed src="./imgs/demo4_h264.mp4" width="100%">
-                </object>
-            </video>
-        </p>
-        <p style="text-align: center;">
-            <video width="100%" poster="imgs/demo6_h264.png" controls muted playsinline>
-                <source src="./imgs/demo6_h264.mp4" type="video/mp4">
-                <object data="./imgs/demo6_h264.mp4" width="100%">
-                  <embed src="./imgs/demo6_h264.mp4" width="100%">
-                </object>
-            </video>
-        </p>
-    </div>
+      <h3>1. Results</h3>
+      <img class="teaser-img"
+           src="./imgs/figure2.png"
+           alt="Quantitative and qualitative results"
+           loading="lazy"
+           decoding="async">
 
-    <div class="content" id="references">
+      <h3>2. Visualization Comparison</h3>
+      <img class="teaser-img"
+           src="./imgs/Comparison.jpg"
+           alt="Visualization comparison"
+           loading="lazy"
+           decoding="async">
 
-        <h2>Reference</h2>
-        <code>
-            @ARTICLE{11370686,,<br>
-                &nbsp;&nbsp;author={Chen, Chuangxi and Zhou, Zhuang and Zhao, Xudong and Yang, Yixiao and Zhang, Xin and Tao, Ran and Su, Binghua},<br>
-                &nbsp;&nbsp;journal={IEEE Signal Processing Letters}, <br>
-                &nbsp;&nbsp;title={Dual-Domain Fractional Fourier Transformer for Underwater Image Degradation Removal}, <br>
-                &nbsp;&nbsp;year={2026},<br>
-                &nbsp;&nbsp;volume={33},<br>
-                &nbsp;&nbsp;number={},<br>
-                &nbsp;&nbsp;pages={1121-1125},<br>
-                &nbsp;&nbsp;doi={10.1109/LSP.2026.3660912}}
-        </code>
+      <h3>3. Real-World Application Videos</h3>
 
-    </div>      
-    <div class="content" id="acknowledgements">
-          <p><strong>Acknowledgements</strong>: <br>
-             This work was done when Zhian was an intern at Tencent AI Lab.
-             Website template is borrowed from <a href="http://ganalyze.csail.mit.edu/">GANalyze</a>.
-              <!-- This work was supported by a Google Faculty Research Award to P.I., and a U.S. National Science Foundation Graduate Research Fellowship to L.C. 
-              Website template is borrowed from our <a href="http://ganalyze.csail.mit.edu/">memorable friends</a>. -->
-              <!--
-              <p><strong>Disclaimer</strong>: The views and conclusions contained herein are those of the authors and
-                  should not be interpreted as necessarily representing the official policies or endorsements, either
-                  expressed or implied, of IARPA, DOI/IBC, or the U.S.
-              </p>
-              -->
-    </p></div>
+      <!-- Important: preload="none" prevents large MP4 files from slowing down first-page loading. -->
+      <p class="video-wrap">
+        <video poster="./imgs/demo1_h264.png" controls muted playsinline preload="none">
+          <source src="./imgs/demo1_h264.mp4" type="video/mp4">
+          Your browser does not support the video tag.
+        </video>
+      </p>
 
+      <p class="video-wrap">
+        <video poster="./imgs/demo4_h264.png" controls muted playsinline preload="none">
+          <source src="./imgs/demo4_h264.mp4" type="video/mp4">
+          Your browser does not support the video tag.
+        </video>
+      </p>
 
+      <p class="video-wrap">
+        <video poster="./imgs/demo6_h264.png" controls muted playsinline preload="none">
+          <source src="./imgs/demo6_h264.mp4" type="video/mp4">
+          Your browser does not support the video tag.
+        </video>
+      </p>
+    </section>
 
+    <section class="content" id="references">
+      <h2>Reference</h2>
+      <code>
+        @ARTICLE{11370686,<br>
+        &nbsp;&nbsp;author={Chen, Chuangxi and Zhou, Zhuang and Zhao, Xudong and Yang, Yixiao and Zhang, Xin and Tao, Ran and Su, Binghua},<br>
+        &nbsp;&nbsp;journal={IEEE Signal Processing Letters},<br>
+        &nbsp;&nbsp;title={Dual-Domain Fractional Fourier Transformer for Underwater Image Degradation Removal},<br>
+        &nbsp;&nbsp;year={2026},<br>
+        &nbsp;&nbsp;volume={33},<br>
+        &nbsp;&nbsp;number={},<br>
+        &nbsp;&nbsp;pages={1121-1125},<br>
+        &nbsp;&nbsp;doi={10.1109/LSP.2026.3660912}<br>
+        }
+      </code>
+    </section>
+
+    <section class="content" id="acknowledgements">
+      <p>
+        <strong>Acknowledgements</strong>: <br>
+        This work was done when Zhian was an intern at Tencent AI Lab.
+        Website template is borrowed from <a href="http://ganalyze.csail.mit.edu/" target="_blank" rel="noopener">GANalyze</a>.
+      </p>
+    </section>
+  </main>
+</body>
+</html>
